@@ -2,7 +2,7 @@ resource "aws_instance" "test-server" {
   ami           = "ami-07d3a50bd29811cd1" 
   instance_type = "t2.micro" 
   key_name = "frstkey"
-  vpc_security_group_ids= ["sg-0ff4024a0cba88baf"]
+  vpc_security_group_ids= ["sg-0347106857582df29"]
   connection {
     type     = "ssh"
     user     = "ec2-user"
