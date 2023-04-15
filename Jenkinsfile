@@ -32,12 +32,12 @@ pipeline {
     
     stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t shankerchauhan/projects:finance .'
+        sh 'docker build -t prafullla/bankingapp:latest1 .'
             }
     }
     stage('DockerLogin') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'DOCKERHUB', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
             }
         }
@@ -45,7 +45,7 @@ pipeline {
 
     stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push shankerchauhan/projects:finance'
+        sh 'docker push prafullla/bankingapp:latest1'
             }
     }
         stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
