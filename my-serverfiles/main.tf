@@ -8,7 +8,6 @@ resource "aws_instance" "test-server" {
     user     = "ec2-user"
     private_key = file("./jenkinskey1.pem")
     host     = self.public_ip
-    agent= false
   }
   provisioner "remote-exec" {
     inline = [ "echo 'wait to start instance' "]
