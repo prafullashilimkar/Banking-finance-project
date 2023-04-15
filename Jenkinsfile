@@ -35,13 +35,13 @@ pipeline {
         sh 'docker build -t prafullla/bankingproject:latest .'
             }
     }
-    //stage('DockerLogin') {
-      //steps {
-       // withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        //sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          //  }
-        //}
-  //  }
+    stage('DockerLogin') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+            }
+        }
+   }
 
     //stage('Push Image to DockerHub') {
       //steps {
