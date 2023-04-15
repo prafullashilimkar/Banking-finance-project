@@ -30,11 +30,11 @@ pipeline {
             }
     }
     
-    //stage('Docker Image Creation') {
-     // steps {
-      //  sh 'docker build -t prafullla/bankingapp:latest1 .'
-        //    }
-    //}
+    stage('Docker Image Creation') {
+      steps {
+        sh 'docker build -t prafullla/bankingproject:latest .'
+            }
+    }
     //stage('DockerLogin') {
       //steps {
        // withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
