@@ -7,7 +7,8 @@ resource "aws_instance" "test-server" {
     type     = "ssh"
     user     = "ec2-user"
     private_key = file("./jenkinskey1.pem")
-    host     = self.public_ip
+    #host     = self.public_ip
+    host      = aws_instance.test-server.public_dns
   }
   provisioner "remote-exec" {
     inline = [ "echo 'wait to start instance' "]
