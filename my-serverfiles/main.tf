@@ -23,6 +23,6 @@ resource "aws_instance" "test-server" {
   }
    provisioner "local-exec" {
   #command = "ansible-playbook /var/lib/jenkins/workspace/Banking-project/my-serverfiles/finance-playbook.yml"
-     "ansiblePlaybook credentialsId: '3.110.29.35', installation: 'ansible', inventory: 'finance-playbook.yml', playbook: '/var/lib/jenkins/workspace/Banking-project/my-serverfiles/', vaultCredentialsId: 'AWS_ACCESS_KEY_ID'"
+   command =  "ansiblePlaybook credentialsId: '3.110.29.35', installation: 'ansible', inventory: 'finance-playbook.yml', playbook: '/var/lib/jenkins/workspace/Banking-project/my-serverfiles/', vaultCredentialsId: 'AWS_ACCESS_KEY_ID'"
   } 
 }
