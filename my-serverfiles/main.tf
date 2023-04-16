@@ -11,7 +11,9 @@ resource "aws_instance" "test-server" {
     host      = aws_instance.test-server.public_dns
   }
   provisioner "remote-exec" {
-    inline = [ "echo 'wait to start instance' "]
+    #inline = [ "echo 'wait to start instance' "]
+    inline = [ "sudo hostnamectl set-hostname cloudEc2.technix.com"]
+    
   }
   tags = {
     Name = "test-server"
