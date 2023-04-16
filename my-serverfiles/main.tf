@@ -22,6 +22,7 @@ resource "aws_instance" "test-server" {
         command = " echo ${aws_instance.test-server.public_ip} > inventory "
   }
    provisioner "local-exec" {
-  command = "ansible-playbook /var/lib/jenkins/workspace/Banking-project/my-serverfiles/finance-playbook.yml"
+  #command = "ansible-playbook /var/lib/jenkins/workspace/Banking-project/my-serverfiles/finance-playbook.yml"
+     ansiblePlaybook credentialsId: '3.110.29.35', installation: 'ansible', inventory: 'finance-playbook.yml', playbook: '/var/lib/jenkins/workspace/Banking-project/my-serverfiles/', vaultCredentialsId: 'AWS_ACCESS_KEY_ID'
   } 
 }
