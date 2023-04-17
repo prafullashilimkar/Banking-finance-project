@@ -1,4 +1,4 @@
-resource "aws_instance" "test-server" {
+resource "aws_instance" "test-server1" {
   ami           = "ami-02eb7a4783e7e9317" 
   instance_type = "t2.micro" 
   key_name = "jenkinskey1"
@@ -16,13 +16,13 @@ resource "aws_instance" "test-server" {
     
   }
   tags = {
-    Name = "test-server"
+    Name = "test-server1"
   }
   provisioner "local-exec" {
-        command = " echo ${aws_instance.test-server.public_ip} > inventory "
+        command = " echo ${aws_instance.test-server1.public_ip} > inventory "
   }
    provisioner "local-exec" {
-  #command = "ansible-playbook /var/lib/jenkins/workspace/Banking-project/my-serverfiles/finance-playbook.yml"
-   command =  "ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml' "
+  command = "ansible-playbook /var/lib/jenkins/workspace/Banking-project/ansible-playbook.yml"
+   #command =  "ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml' "
   } 
 }
