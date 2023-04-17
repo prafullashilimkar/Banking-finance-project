@@ -5,7 +5,7 @@ resource "aws_instance" "test-server" {
   vpc_security_group_ids= ["sg-0fab79b6d1427d7ef"]
   connection {
     type     = "ssh"
-    user     = "ec2-user"
+    user     = "ubuntu"
     private_key = file("./jenkinskey1.pem")
     #host     = self.public_ip
     host      = aws_instance.test-server.public_dns
@@ -23,6 +23,6 @@ resource "aws_instance" "test-server" {
   }
    provisioner "local-exec" {
   #command = "ansible-playbook /var/lib/jenkins/workspace/Banking-project/my-serverfiles/finance-playbook.yml"
-   command =  "ansiblePlaybook credentialsId: '3.110.29.35', installation: 'ansible', inventory: 'finance-playbook.yml', playbook: '/var/lib/jenkins/workspace/Banking-project/my-serverfiles/', vaultCredentialsId: 'AWS_ACCESS_KEY_ID'"
+   command =  "ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml' "
   } 
 }
