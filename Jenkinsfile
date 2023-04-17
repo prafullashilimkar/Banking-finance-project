@@ -60,7 +60,7 @@ pipeline {
         //}
     stage('Deploy application using ansible'){
                steps {
-                    ansiblePlaybook credentialsId: 'test-server', disableHostKeyChecking: true, installation: 'ansible', playbook: 'finance-playbook.yml' 
+                   ansiblePlaybook credentialsId: 'test-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: '/var/lib/jenkins/workspace/Banking-project/my-serverfiles/finance-playbook.yml' 
                    }
             }
      }
