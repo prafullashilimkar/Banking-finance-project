@@ -62,6 +62,6 @@ pipeline {
                steps {
                     ansiblePlaybook credentialsId: 'test-server', disableHostKeyChecking: true, installation: 'ansible', playbook: 'finance-playbook.yml' 
                    }
-    
+            }
      }
 }
