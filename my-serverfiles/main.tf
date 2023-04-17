@@ -11,8 +11,8 @@ resource "aws_instance" "test-server1" {
     
   }
   provisioner "remote-exec" {
-    #inline = [ "echo 'wait to start instance' "]
-    inline = [ "sudo hostnamectl set-hostname cloudEc2.technix.com"]
+    inline = [ "echo 'wait to start instance' "]
+    #inline = [ "sudo hostnamectl set-hostname cloudEc2.technix.com"]
     
   }
   tags = {
