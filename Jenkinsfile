@@ -48,7 +48,7 @@ pipeline {
         sh 'docker push prafullla/bankingproject:latest'
             }
     }
-     /*   stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
+       stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
            steps {
                dir('my-serverfiles'){
                 sh 'sudo chmod 600 jenkinskey1.pem'
@@ -57,11 +57,11 @@ pipeline {
                sh 'terraform apply --auto-approve'
                 }
             }
-        }*/
-   stage('Deploy application using ansible'){
+        }
+ /*  stage('Deploy application using ansible'){
                steps {
                  ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
-                   }
-            }
+                   } 
+            } */
      }
 }
