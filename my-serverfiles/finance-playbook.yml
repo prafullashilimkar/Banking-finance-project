@@ -7,10 +7,10 @@
     command : apt update
 
   - name : Install Docker
-    command : apt install docker.io
+    command : sudo apt install docker.io
 
   - name : Start Docker Service
-    command : systemctl start docker
+    command : sudo systemctl start docker
 
   - name : Run the Bank application
     command: docker run -dt -p 9000:8081 prafullla/bankingproject
