@@ -5,7 +5,7 @@ resource "aws_instance" "test-server1" {
   vpc_security_group_ids= ["sg-0fab79b6d1427d7ef"]
   connection {
     type     = "ssh"
-    user     = "ec2-user"
+    user     = "ubuntu"
     private_key = file("./jenkinskey1.pem")
     host     = self.public_ip
     
