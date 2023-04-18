@@ -4,13 +4,13 @@
   connection : ssh
   tasks : 
   - name: Updating apt
-    command : sudo apt update
+    command : apt update
 
   - name : Install Docker
-    command : sudo apt install docker.io 
+    command : apt install docker.io 
 
   - name : Start Docker Service
-    command : sudo systemctl start docker
+    command : systemctl start docker
 
   - name : Run the Bank application
-    command: sudo docker run -dt -p 9000:8081 prafullla/bankingproject
+    command: docker run -dt -p 9000:8081 prafullla/bankingproject
