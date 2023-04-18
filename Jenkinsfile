@@ -58,10 +58,10 @@ pipeline {
                 }
             }
         }
- /*  stage('Deploy application using ansible'){
+     stage('Deploy application using ansible'){
                steps {
                  ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
                    } 
-            } */
+            } 
      }
 }
