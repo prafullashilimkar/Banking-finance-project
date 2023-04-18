@@ -12,7 +12,7 @@ resource "aws_instance" "test-server1" {
   }
   provisioner "remote-exec" {
     inline = [ "echo 'wait to start instance' "]
-    #inline = [ "sudo hostnamectl set-hostname cloudEc2.technix.com"]
+    
     
   }
   tags = {
@@ -23,6 +23,6 @@ resource "aws_instance" "test-server1" {
   }
    provisioner "local-exec" {
   command = "ansible-playbook /var/lib/jenkins/workspace/Banking-project/ansible-playbook.yml"
-   #command =  "ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml' "
+   
   } 
 }
